@@ -17,10 +17,14 @@ class App extends Component {
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleTypeClick = this.handleTypeClick.bind(this);
     this.handleShinyClick = this.handleShinyClick.bind(this);
+    this.handleOnTypesClicker = this.handleOnTypesClicker.bind(this);
   }
+  handleOnTypesClicker() {
+    console.log();
+  }
+
   handleShinyClick() {
     this.setState({ isShiny: !this.state.isShiny });
-    console.log();
   }
   handleOnClick(id) {
     fetch(`http://pokeapi.co/api/v2/pokemon/${id}/`)
