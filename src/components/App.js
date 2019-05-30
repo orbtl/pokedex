@@ -19,8 +19,14 @@ class App extends Component {
     this.handleShinyClick = this.handleShinyClick.bind(this);
     this.handleOnTypesClicker = this.handleOnTypesClicker.bind(this);
   }
-  handleOnTypesClicker() {
-    console.log();
+  handleOnTypesClicker(name) {
+    fetch(`http://pokeapi.co/api/v2/type/${name}/`)
+    .then(res => res.json())
+    .then(data=>{
+      const pokemon = new Pokemon(data);
+      this.setState({pokemon});
+    })
+    .catch(err => console.log(err));
   }
 
   handleShinyClick() {
