@@ -20,12 +20,10 @@ steps:
     npm run build
   displayName: 'npm install and build'
   
-- task: ArchiveFiles@2
+- task: AzureRmWebAppDeployment@3
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)' 
-    includeRootFolder: false
-    archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
-    replaceExistingArchive: true 
-    #verbose: # Optional
-    #quiet: # Optional
+    azureSubscription: 'bobthesuperpie azure'
+    WebAppName: 'pokedextest'
+    Package: '$(System.DefaultWorkingDirectory)'
+    GenerateWebConfig: true
+    WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
