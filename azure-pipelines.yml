@@ -20,10 +20,6 @@ steps:
     npm run build
   displayName: 'npm install and build'
   
-- task: AzureRmWebAppDeployment@3
+- task: PublishBuildArtifacts@1
   inputs:
-    azureSubscription: 'bobthesuperpie azure'
-    WebAppName: 'pokedextest'
-    Package: '$(System.DefaultWorkingDirectory)'
-    GenerateWebConfig: true
-    WebConfigParameters: '-Handler iisnode -NodeStartFile server.js -appType node'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
