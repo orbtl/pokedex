@@ -28,7 +28,7 @@ class App extends Component {
     this.setState({ isShiny: !this.state.isShiny });
   }
   handleOnClick(id) {
-    fetch(`http://pokeapi.co/api/v2/pokemon/${id}/`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
       .then(res => res.json())
       .then(data => {
         const pokemon = new Pokemon(data);
@@ -38,7 +38,7 @@ class App extends Component {
       .catch(err => console.log(err));
   }
   handleTypeClick(type) {
-    fetch(`http://pokeapi.co/api/v2/type/${type}/pokemon/[0]/url/`)
+    fetch(`https://pokeapi.co/api/v2/type/${type}/pokemon/[0]/url/`)
       .then(res => res.json())
       .then(data => {
         const type = new Pokemon(data);
